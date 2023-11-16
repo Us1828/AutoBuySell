@@ -44,7 +44,7 @@ function jsonRead(jsonFilePath)
 end
 
 local russian_characters = {
-  [168] = 'Ё', [184] = 'ё', [192] = 'А', [193] = 'Б', [194] = 'В', [195] = 'Г', [196] = 'Д', [197] = 'Е', [198] = 'Ж', [199] = 'З', [200] = 'И', [201] = 'Й', [202] = 'К', [203] = 'Л', [204] = 'М', [205] = 'Н', [206] = 'О', [207] = 'П', [208] = 'Р', [209] = 'С', [210] = 'Т', [211] = 'У', [212] = 'Ф', [213] = 'Х', [214] = 'Ц', [215] = 'Ч', [216] = 'Ш', [217] = 'Щ', [218] = 'Ъ', [219] = 'Ы', [220] = 'Ь', [221] = 'Э', [222] = 'Ю', [223] = 'Я', [224] = 'а', [225] = 'б', [226] = 'в', [227] = 'г', [228] = 'д', [229] = 'е', [230] = 'ж', [231] = 'з', [232] = 'и', [233] = 'й', [234] = 'к', [235] = 'л', [236] = 'м', [237] = 'н', [238] = 'о', [239] = 'п', [240] = 'р', [241] = 'с', [242] = 'т', [243] = 'у', [244] = 'ф', [245] = 'х', [246] = 'ц', [247] = 'ч', [248] = 'ш', [249] = 'щ', [250] = 'ъ', [251] = 'ы', [252] = 'ь', [253] = 'э', [254] = 'ю', [255] = 'я',
+  [168] = 'ВЁ', [184] = 'Вё', [192] = 'ГЂ', [193] = 'ГЃ', [194] = 'Г‚', [195] = 'Гѓ', [196] = 'Г„', [197] = 'Г…', [198] = 'Г†', [199] = 'Г‡', [200] = 'Г€', [201] = 'Г‰', [202] = 'ГЉ', [203] = 'Г‹', [204] = 'ГЊ', [205] = 'ГЌ', [206] = 'ГЋ', [207] = 'ГЏ', [208] = 'Гђ', [209] = 'Г‘', [210] = 'Г’', [211] = 'Г“', [212] = 'Г”', [213] = 'Г•', [214] = 'Г–', [215] = 'Г—', [216] = 'Г', [217] = 'Г™', [218] = 'Гљ', [219] = 'Г›', [220] = 'Гњ', [221] = 'Гќ', [222] = 'Гћ', [223] = 'Гџ', [224] = 'Г ', [225] = 'ГЎ', [226] = 'Гў', [227] = 'ГЈ', [228] = 'Г¤', [229] = 'ГҐ', [230] = 'Г¦', [231] = 'Г§', [232] = 'ГЁ', [233] = 'Г©', [234] = 'ГЄ', [235] = 'Г«', [236] = 'Г¬', [237] = 'Г­', [238] = 'Г®', [239] = 'ГЇ', [240] = 'Г°', [241] = 'Г±', [242] = 'ГІ', [243] = 'Гі', [244] = 'Гґ', [245] = 'Гµ', [246] = 'Г¶', [247] = 'Г·', [248] = 'Гё', [249] = 'Г№', [250] = 'Гє', [251] = 'Г»', [252] = 'Гј', [253] = 'ГЅ', [254] = 'Гѕ', [255] = 'Гї',
 }
 local bufferSearch = {imgui.ImBuffer(128), imgui.ImBuffer(128), imgui.ImBuffer(128), imgui.ImBuffer(128)}
 local choiceBuyArray = {}
@@ -73,11 +73,11 @@ function imgui.OnDrawFrame()
 
     imgui.BeginGroup()
       imgui.BeginChild('question', imgui.ImVec2(sw / 16, sh / 1.62), true)
-        if imgui.ButtonActivated(tab == 1, u8('Скуп'), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 2 tab = 1 end
-        if imgui.ButtonActivated(tab == 2, u8('Продажа'), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 3 tab = 2 end
-        if imgui.ButtonActivated(tab == 3, u8('Настройки'), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 4 tab = 3 end
+        if imgui.ButtonActivated(tab == 1, u8('Г‘ГЄГіГЇ'), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 2 tab = 1 end
+        if imgui.ButtonActivated(tab == 2, u8('ГЏГ°Г®Г¤Г Г¦Г '), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 3 tab = 2 end
+        if imgui.ButtonActivated(tab == 3, u8('ГЌГ Г±ГІГ°Г®Г©ГЄГЁ'), imgui.ImVec2(sw / 21.2, sh / 15)) then menu = 4 tab = 3 end
         imgui.Separator()
-        if imgui.Button(u8('Выход'), imgui.ImVec2(sw / 21.2, sh / 15)) then window.v = not window.v end
+        if imgui.Button(u8('Г‚Г»ГµГ®Г¤'), imgui.ImVec2(sw / 21.2, sh / 15)) then window.v = not window.v end
       imgui.EndChild()
     imgui.EndGroup()
 
@@ -91,17 +91,17 @@ function imgui.OnDrawFrame()
             imgui.BeginGroup()
               imgui.BeginChild('choiceBuyMain', imgui.ImVec2(sw / 3.96, sh / 12), true)
 
-                if imgui.Button(u8('Обновить список товаров'), imgui.ImVec2(sw / 4.23, sh / 40)) then
-                  sms('Для того, чтобы начать обновлять список товаров на скуп - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('ГЋГЎГ­Г®ГўГЁГІГј Г±ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј Г®ГЎГ­Г®ГўГ«ГїГІГј Г±ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў Г­Г  Г±ГЄГіГЇ - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   mode = 1
                 end
-                if imgui.Button(u8('Обновить средние цены'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                if imgui.Button(u8('ГЋГЎГ­Г®ГўГЁГІГј Г±Г°ГҐГ¤Г­ГЁГҐ Г¶ГҐГ­Г»'), imgui.ImVec2(sw / 4.23, sh / 40)) then
 
                 end
               imgui.EndChild()
               imgui.BeginChild('choiceBuy', imgui.ImVec2(sw / 3.96, sh / 2), true)
-                local choiceBuy = imgui.InputTextWithHint("## buffer", u8"Название", bufferSearch[1])
-                imgui.Text(u8('В списке предметов: %s'):format(#choiceBuyArray))
+                local choiceBuy = imgui.InputTextWithHint("## buffer", u8"ГЌГ Г§ГўГ Г­ГЁГҐ", bufferSearch[1])
+                imgui.Text(u8('Г‚ Г±ГЇГЁГ±ГЄГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў: %s'):format(#choiceBuyArray))
                 imgui.Separator()
                 if bufferSearch[1].v == "" then
                   for i, f in ipairs(choiceBuyArray) do
@@ -123,17 +123,17 @@ function imgui.OnDrawFrame()
           if menu == 3 then
             imgui.BeginGroup()
               imgui.BeginChild('choiceSellMain', imgui.ImVec2(sw / 3.96, sh / 12), true)
-                if imgui.Button(u8('Обновить список товаров'), imgui.ImVec2(sw / 4.23, sh / 40)) then
-                  sms('Для того, чтобы начать обновлять список товаров на продажу - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('ГЋГЎГ­Г®ГўГЁГІГј Г±ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј Г®ГЎГ­Г®ГўГ«ГїГІГј Г±ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў Г­Г  ГЇГ°Г®Г¤Г Г¦Гі - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   mode = 6
                 end
-                if imgui.Button(u8('Обновить средние цены'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                if imgui.Button(u8('ГЋГЎГ­Г®ГўГЁГІГј Г±Г°ГҐГ¤Г­ГЁГҐ Г¶ГҐГ­Г»'), imgui.ImVec2(sw / 4.23, sh / 40)) then
                   
                 end
               imgui.EndChild()
               imgui.BeginChild('choiceSell', imgui.ImVec2(sw / 3.96, sh / 2), true)
-                local choiceSell = imgui.InputTextWithHint("## buffer", u8"Название", bufferSearch[2])
-                imgui.Text(u8('В списке предметов: %s'):format(#choiceSellArray))
+                local choiceSell = imgui.InputTextWithHint("## buffer", u8"ГЌГ Г§ГўГ Г­ГЁГҐ", bufferSearch[2])
+                imgui.Text(u8('Г‚ Г±ГЇГЁГ±ГЄГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў: %s'):format(#choiceSellArray))
                 imgui.Separator()
                 if bufferSearch[2].v == "" then
                   for i,data in pairs(choiceSellArray) do
@@ -162,26 +162,26 @@ function imgui.OnDrawFrame()
           if menu == 2 then
             imgui.BeginGroup()
               imgui.BeginChild('myBuyMain', imgui.ImVec2(sw / 3.96, sh / 12), true)
-                if imgui.Button(u8('Основной'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                if imgui.Button(u8('ГЋГ±Г­Г®ГўГ­Г®Г©'), imgui.ImVec2(sw / 4.23, sh / 40)) then
                   
                 end
-                if imgui.Button(u8('По остатку'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                if imgui.Button(u8('ГЏГ® Г®Г±ГІГ ГІГЄГі'), imgui.ImVec2(sw / 13.4, sh / 40)) then
                   
                 end
                 imgui.SameLine()
-                if imgui.Button(u8('Снять'), imgui.ImVec2(sw / 13.4, sh / 40)) then
-                  sms('Для того, чтобы начать снимать товар со скупа - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('Г‘Г­ГїГІГј'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј Г±Г­ГЁГ¬Г ГІГј ГІГ®ГўГ Г° Г±Г® Г±ГЄГіГЇГ  - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   mode = 4
                 end
                 imgui.SameLine()
-                if imgui.Button(u8('Выставить'), imgui.ImVec2(sw / 13.4, sh / 40)) then
-                  sms('Для того, чтобы начать выставлять товар на скуп - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('Г‚Г»Г±ГІГ ГўГЁГІГј'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј ГўГ»Г±ГІГ ГўГ«ГїГІГј ГІГ®ГўГ Г° Г­Г  Г±ГЄГіГЇ - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   mode = 3
                 end
               imgui.EndChild()
               imgui.BeginChild('myBuy', imgui.ImVec2(sw / 3.96, sh / 2), true)
-                local myBuy = imgui.InputTextWithHint("## buffer", u8"Название", bufferSearch[3])
-                imgui.Text(u8('В списке предметов: %s'):format(#myBuyArray))
+                local myBuy = imgui.InputTextWithHint("## buffer", u8"ГЌГ Г§ГўГ Г­ГЁГҐ", bufferSearch[3])
+                imgui.Text(u8('Г‚ Г±ГЇГЁГ±ГЄГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў: %s'):format(#myBuyArray))
                 imgui.SameLine()
                 calcPriceBuy()
                 imgui.Separator()
@@ -205,27 +205,27 @@ function imgui.OnDrawFrame()
           if menu == 3 then
             imgui.BeginGroup()
               imgui.BeginChild('mySellMain', imgui.ImVec2(sw / 3.96, sh / 12), true)
-                if imgui.Button(u8('Основной'), imgui.ImVec2(sw / 4.23, sh / 40)) then
+                if imgui.Button(u8('ГЋГ±Г­Г®ГўГ­Г®Г©'), imgui.ImVec2(sw / 4.23, sh / 40)) then
                   
                 end
-                if imgui.Button(u8('По остатку'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                if imgui.Button(u8('ГЏГ® Г®Г±ГІГ ГІГЄГі'), imgui.ImVec2(sw / 13.4, sh / 40)) then
                   
                 end
                 imgui.SameLine()
-                if imgui.Button(u8('Снять'), imgui.ImVec2(sw / 13.4, sh / 40)) then
-                  sms('Для того, чтобы начать снимать товар с продажи - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('Г‘Г­ГїГІГј'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј Г±Г­ГЁГ¬Г ГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   mode = 20
                 end
                 imgui.SameLine()
-                if imgui.Button(u8('Выставить'), imgui.ImVec2(sw / 13.4, sh / 40)) then
-                  sms('Для того, чтобы начать выставлять товар на продажу - нажмите alt у лавки и ждите')
+                if imgui.Button(u8('Г‚Г»Г±ГІГ ГўГЁГІГј'), imgui.ImVec2(sw / 13.4, sh / 40)) then
+                  sms('Г„Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г­Г Г·Г ГІГј ГўГ»Г±ГІГ ГўГ«ГїГІГј ГІГ®ГўГ Г° Г­Г  ГЇГ°Г®Г¤Г Г¦Гі - Г­Г Г¦Г¬ГЁГІГҐ alt Гі Г«Г ГўГЄГЁ ГЁ Г¦Г¤ГЁГІГҐ')
                   pagesell = 1
                   mode = 8
                 end
               imgui.EndChild()
               imgui.BeginChild('mySell', imgui.ImVec2(sw / 3.96, sh / 2), true)
-                local mySell = imgui.InputTextWithHint("## buffer", u8"Название", bufferSearch[4])
-                imgui.Text(u8('В списке предметов: %s'):format(#mySellArray))
+                local mySell = imgui.InputTextWithHint("## buffer", u8"ГЌГ Г§ГўГ Г­ГЁГҐ", bufferSearch[4])
+                imgui.Text(u8('Г‚ Г±ГЇГЁГ±ГЄГҐ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў: %s'):format(#mySellArray))
                 imgui.SameLine()
                 calcPriceSell()
                 imgui.Separator()
@@ -253,8 +253,8 @@ function imgui.OnDrawFrame()
     if menu == 4 then
       imgui.BeginGroup()
         imgui.BeginChild('settings', imgui.ImVec2(sw / 1.845, sh / 1.62), true)
-          imgui.Text(u8('Название: %s\nВерсия: %s\nАвтор: %s\n\nКоманда для открытия скрипта: %s'):format(__name__, __version__, u8(__author__), u8('/'..ini.main.command)))
-          imgui.Text(u8('moonloader // config // AutoBuySell - путь настроек.\nmybuy.json - скуп предметов (1: название, 2: количество, 3: цена, 4: активировано ли)\nchoicebuy.json - выбор предмета на скуп (1: название)\nmysell.json - продажа предметов (1: название, 2: количество, 3: цена, 4: активировано ли)\nchoicesell.json - выбор предмета для продажу (1: название, количество)\nAbsSettings.ini - настройки (1: название, 2: значение)'))
+          imgui.Text(u8('ГЌГ Г§ГўГ Г­ГЁГҐ: %s\nГ‚ГҐГ°Г±ГЁГї: %s\nГЂГўГІГ®Г°: %s\n\nГЉГ®Г¬Г Г­Г¤Г  Г¤Г«Гї Г®ГІГЄГ°Г»ГІГЁГї Г±ГЄГ°ГЁГЇГІГ : %s'):format(__name__, __version__, u8(__author__), u8('/'..ini.main.command)))
+          imgui.Text(u8('moonloader // config // AutoBuySell - ГЇГіГІГј Г­Г Г±ГІГ°Г®ГҐГЄ.\nmybuy.json - Г±ГЄГіГЇ ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў (1: Г­Г Г§ГўГ Г­ГЁГҐ, 2: ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®, 3: Г¶ГҐГ­Г , 4: Г ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г® Г«ГЁ)\nchoicebuy.json - ГўГ»ГЎГ®Г° ГЇГ°ГҐГ¤Г¬ГҐГІГ  Г­Г  Г±ГЄГіГЇ (1: Г­Г Г§ГўГ Г­ГЁГҐ)\nmysell.json - ГЇГ°Г®Г¤Г Г¦Г  ГЇГ°ГҐГ¤Г¬ГҐГІГ®Гў (1: Г­Г Г§ГўГ Г­ГЁГҐ, 2: ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®, 3: Г¶ГҐГ­Г , 4: Г ГЄГІГЁГўГЁГ°Г®ГўГ Г­Г® Г«ГЁ)\nchoicesell.json - ГўГ»ГЎГ®Г° ГЇГ°ГҐГ¤Г¬ГҐГІГ  Г¤Г«Гї ГЇГ°Г®Г¤Г Г¦Гі (1: Г­Г Г§ГўГ Г­ГЁГҐ, ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®)\nAbsSettings.ini - Г­Г Г±ГІГ°Г®Г©ГЄГЁ (1: Г­Г Г§ГўГ Г­ГЁГҐ, 2: Г§Г­Г Г·ГҐГ­ГЁГҐ)'))
           imgui.Text(' ')
           settingsmaincmd()
           kdmaincmd()
@@ -272,7 +272,7 @@ function main()
   if not isSampfuncsLoaded() or not isSampLoaded() then return end
 	while not isSampAvailable() do wait(200) end
 
-  sms('Author Kline.' .. ' Активация /' .. ini.main.command)
+  sms('Author Kline.' .. ' ГЂГЄГІГЁГўГ Г¶ГЁГї /' .. ini.main.command)
 
   if not doesFileExist(json_file_choicebuyarray) then jsonSave(json_file_choicebuyarray, {}) end
   if not doesFileExist(json_file_mybuyarray) then jsonSave(json_file_mybuyarray, {}) end
@@ -299,9 +299,9 @@ end
 
 function sampev.onServerMessage(color, text)
   lua_thread.create(function ()
-    if text:find("Используйте клавишу: 'Действия' для управления товарами!") and text:find('[Подсказка]') and color == -89368321 then
+    if text:find("Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ ГЄГ«Г ГўГЁГёГі: 'Г„ГҐГ©Г±ГІГўГЁГї' Г¤Г«Гї ГіГЇГ°Г ГўГ«ГҐГ­ГЁГї ГІГ®ГўГ Г°Г Г¬ГЁ!") and text:find('[ГЏГ®Г¤Г±ГЄГ Г§ГЄГ ]') and color == -89368321 then
       wait(500)
-      sampAddChatMessage(('{32CD32}AutoBuySell - для того, чтобы открыть меню введите команду /%s'):format(ini.main.command), -1)
+      sampAddChatMessage(('{32CD32}AutoBuySell - Г¤Г«Гї ГІГ®ГЈГ®, Г·ГІГ®ГЎГ» Г®ГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі /%s'):format(ini.main.command), -1)
       wait(500)
       if ini.main.autobuy == true and ini.main.autosell == false then
         mode = 3
@@ -318,25 +318,25 @@ end
 
 function sampev.onShowDialog(id, style, title, button1, button2, text)
 
-  local page = {title:match('Страница (%d+)/(%d+)')}
+  local page = {title:match('Г‘ГІГ°Г Г­ГЁГ¶Г  (%d+)/(%d+)')}
 
-  if mode == 1 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 1 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     lua_thread.create(function ()
       choiceBuyArray = {}
       jsonSave(json_file_choicebuyarray,choiceBuyArray)
       wait(ini.main.delaybuy)
-      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Добавить товар на покупку'), nil)
+      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г„Г®ГЎГ ГўГЁГІГј ГІГ®ГўГ Г° Г­Г  ГЇГ®ГЄГіГЇГЄГі'), nil)
       mode = 2
     end)
   end
 
-  if mode == 2 and text:find('Скупаете') and text:find('Следующая страница >>>') and page[1] ~= page[2] then
+  if mode == 2 and text:find('Г‘ГЄГіГЇГ ГҐГІГҐ') and text:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>') and page[1] ~= page[2] then
     lua_thread.create(function ()
       wait(ini.main.delaybuy)
       local size = sampGetListboxItemsCount()-1
       local rightpage = sampGetListboxItemsCount()-1
       for i = 0, size, 1 do
-        if sampGetListboxItemText(i) ~= 'Следующая страница >>>' and sampGetListboxItemText(i) ~= '<<< Предыдущая страница' then
+        if sampGetListboxItemText(i) ~= 'Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>' and sampGetListboxItemText(i) ~= '<<< ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ' then
           local sampget = sampGetListboxItemText(i)
           local newsampget = sampget:gsub('{......}', '')
           if choicesellarrayfind1(newsampget) == false then
@@ -350,16 +350,16 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
     end)
   end
 
-  if mode == 2  and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 2  and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     mode = 1
   end
 
-  if mode == 2 and text:find('Скупаете') and text:find('Следующая страница >>>') and page[1] == page[2] then
+  if mode == 2 and text:find('Г‘ГЄГіГЇГ ГҐГІГҐ') and text:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>') and page[1] == page[2] then
     lua_thread.create(function ()
       wait(ini.main.delaybuy)
       local size = sampGetListboxItemsCount()-1
       for i = 0, size, 1 do
-        if sampGetListboxItemText(i) ~= 'Следующая страница >>>' and sampGetListboxItemText(i) ~= '<<< Предыдущая страница' then
+        if sampGetListboxItemText(i) ~= 'Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>' and sampGetListboxItemText(i) ~= '<<< ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ' then
           local sampget = sampGetListboxItemText(i)
           local newsampget = sampget:gsub('{......}', '')
           if choicesellarrayfind1(newsampget) == false then
@@ -371,16 +371,16 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
       end
       mode = 0
       sampSendDialogResponse(id, 0)
-      sms('Обновления списка товаров на скуп завершен!')
+      sms('ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г±ГЇГЁГ±ГЄГ  ГІГ®ГўГ Г°Г®Гў Г­Г  Г±ГЄГіГЇ Г§Г ГўГҐГ°ГёГҐГ­!')
     end)
   end
 
-  if mode == 3 and #myBuyArray <= 0 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
-    sms('Список товаров на скуп пустой!')
+  if mode == 3 and #myBuyArray <= 0 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
+    sms('Г‘ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў Г­Г  Г±ГЄГіГЇ ГЇГіГ±ГІГ®Г©!')
     mode = 0
   end
 
-  if mode == 3 and #myBuyArray > 0 and text:find('Удалить товар с продажи') and text:find('Прекратить покупку товара') then
+  if mode == 3 and #myBuyArray > 0 and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') then
     lua_thread.create(function ()
       if imyBuyArray <= #myBuyArray and myBuyArray[imyBuyArray][4] == false then
         imyBuyArray = myBuyArrayCheck()
@@ -389,32 +389,32 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
         mode = 0
         imyBuyArray = 1
         sampCloseCurrentDialogWithButton(0)
-        sms('Выставление товаров на скуп завершен!')
+        sms('Г‚Г»Г±ГІГ ГўГ«ГҐГ­ГЁГҐ ГІГ®ГўГ Г°Г®Гў Г­Г  Г±ГЄГіГЇ Г§Г ГўГҐГ°ГёГҐГ­!')
       else
         wait(ini.main.delaybuy)
-        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Добавить товар на покупку %(поиск по предметам%)'), nil)
+        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г„Г®ГЎГ ГўГЁГІГј ГІГ®ГўГ Г° Г­Г  ГЇГ®ГЄГіГЇГЄГі %(ГЇГ®ГЁГ±ГЄ ГЇГ® ГЇГ°ГҐГ¤Г¬ГҐГІГ Г¬%)'), nil)
       end
     end)
   end
 
-  if mode == 3 and #myBuyArray > 0 and not text:find('Удалить товар с продажи') and not text:find('Прекратить покупку товара') then
+  if mode == 3 and #myBuyArray > 0 and not text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') and not text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') then
     lua_thread.create(function()
-      if text:find('Введите наименование товара, который хотите найти и выставить на скупку.') and #myBuyArray > 0 then
+      if text:find('Г‚ГўГҐГ¤ГЁГІГҐ Г­Г ГЁГ¬ГҐГ­Г®ГўГ Г­ГЁГҐ ГІГ®ГўГ Г°Г , ГЄГ®ГІГ®Г°Г»Г© ГµГ®ГІГЁГІГҐ Г­Г Г©ГІГЁ ГЁ ГўГ»Г±ГІГ ГўГЁГІГј Г­Г  Г±ГЄГіГЇГЄГі.') and #myBuyArray > 0 then
         wait(ini.main.delaybuy)
         sampSendDialogResponse(id, 1, nil, myBuyArray[imyBuyArray][1])
       end
-      if title:find('Поиск товара') and not text:find('Введите наименование товара, который хотите найти и выставить на скупку.') and #myBuyArray > 0 then
+      if title:find('ГЏГ®ГЁГ±ГЄ ГІГ®ГўГ Г°Г ') and not text:find('Г‚ГўГҐГ¤ГЁГІГҐ Г­Г ГЁГ¬ГҐГ­Г®ГўГ Г­ГЁГҐ ГІГ®ГўГ Г°Г , ГЄГ®ГІГ®Г°Г»Г© ГµГ®ГІГЁГІГҐ Г­Г Г©ГІГЁ ГЁ ГўГ»Г±ГІГ ГўГЁГІГј Г­Г  Г±ГЄГіГЇГЄГі.') and #myBuyArray > 0 then
         wait(ini.main.delaybuy)
         local text = text:gsub('{......}', '')
         local text = text:gsub('%d.','')
         sampSendDialogResponse(id, 1, 0, nil)
       end
-      if text:find('Введите цену за товар') and #myBuyArray > 0 then
+      if text:find('Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГҐГ­Гі Г§Г  ГІГ®ГўГ Г°') and #myBuyArray > 0 then
         wait(ini.main.delaybuy)
         sampSendDialogResponse(id, 1, nil, myBuyArray[imyBuyArray][3])
         imyBuyArray = imyBuyArray + 1
       end
-      if text:find('Введите количество и цену за один товар')and #myBuyArray > 0 then
+      if text:find('Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЁ Г¶ГҐГ­Гі Г§Г  Г®Г¤ГЁГ­ ГІГ®ГўГ Г°')and #myBuyArray > 0 then
         wait(ini.main.delaybuy)
         sampSendDialogResponse(id, 1, nil, myBuyArray[imyBuyArray][2]..','..myBuyArray[imyBuyArray][3])
         imyBuyArray = imyBuyArray + 1
@@ -422,20 +422,20 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
     end)
   end
 
-  if mode == 4 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 4 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     lua_thread.create(function ()
       wait(ini.main.delaybuy)
-      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Прекратить покупку товара'), nil)
+      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г '), nil)
       mode = 5
     end)
   end
 
-  if mode == 5 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 5 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     mode = 0
-    sms('Прекращение скупа товаров завершен!')
+    sms('ГЏГ°ГҐГЄГ°Г Г№ГҐГ­ГЁГҐ Г±ГЄГіГЇГ  ГІГ®ГўГ Г°Г®Гў Г§Г ГўГҐГ°ГёГҐГ­!')
   end
 
-  if mode == 5 and text:find('Скупаете') and text:find('Следующая страница >>>') then
+  if mode == 5 and text:find('Г‘ГЄГіГЇГ ГҐГІГҐ') and text:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>') then
     lua_thread.create(function ()
       local size = sampGetListboxItemsCount()-1
       local rightpage = sampGetListboxItemsCount()-1
@@ -449,29 +449,29 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
     end)
   end
 
-  if mode == 6 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 6 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     lua_thread.create(function ()
       choiceSellArray = {}
       jsonSave(json_file_choicesellarray,choiceSellArray)
       wait(ini.main.delaysell)
-      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Выставить товар на продажу'), nil)
+      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г‚Г»Г±ГІГ ГўГЁГІГј ГІГ®ГўГ Г° Г­Г  ГЇГ°Г®Г¤Г Г¦Гі'), nil)
       mode = 7
     end)
   end
 
-  if mode == 7 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 7 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     mode = 6
   end
 
-  if mode == 7 and text:find('В продаже') and text:find('Следующая страница >>>') and page[1] ~= page[2] then
+  if mode == 7 and text:find('Г‚ ГЇГ°Г®Г¤Г Г¦ГҐ') and text:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>') and page[1] ~= page[2] then
     lua_thread.create(function ()
       for line in text:gmatch('[^\n]+') do
-        if line:find('.+') and not line:find('В наличии') and not line:find('Предыдущая страница') and not line:find('Следующая страница') then
+        if line:find('.+') and not line:find('Г‚ Г­Г Г«ГЁГ·ГЁГЁ') and not line:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and not line:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') then
           if line:find('{777777}') then
             local namebad = line:match('{777777}.+{777777}')
             local nameb = namebad:gsub('{......}','')
             local name = nameb:gsub('%s+$','')
-            if line:find('{777777}(%d+) шт%.') then
+            if line:find('{777777}(%d+) ГёГІ%.') then
               local num = line:match('{777777}(%d+)')
               local numgood = num:gsub('{......}','')
               if choicesellarrayfind(name,numgood) == false then
@@ -492,7 +492,7 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
             local namebad = line:match('{FFFFFF}.+{FFFFFF}')
             local nameb = namebad:gsub('{......}','')
             local name = nameb:gsub('%s+$','')
-            if line:find('{FFFFFF}(%d+) шт%.') then
+            if line:find('{FFFFFF}(%d+) ГёГІ%.') then
               local num = line:match('{FFFFFF}(%d+)')
               local numgood = num:gsub('{......}','')
               if choicesellarrayfind(name,numgood) == false then
@@ -512,19 +512,19 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
         end
       end
       wait(ini.main.delaysell)
-      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Следующая страница')-1, nil)
+      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ')-1, nil)
     end)
   end
 
-  if mode == 7 and text:find('В продаже') and text:find('В наличии') and page[1] == page[2] then
+  if mode == 7 and text:find('Г‚ ГЇГ°Г®Г¤Г Г¦ГҐ') and text:find('Г‚ Г­Г Г«ГЁГ·ГЁГЁ') and page[1] == page[2] then
     lua_thread.create(function ()
       for line in text:gmatch('[^\n]+') do
-        if line:find('.+') and not line:find('В наличии') and not line:find('Предыдущая страница') and not line:find('Следующая страница') then
+        if line:find('.+') and not line:find('Г‚ Г­Г Г«ГЁГ·ГЁГЁ') and not line:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and not line:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') then
           if line:find('{777777}') then
             local namebad = line:match('{777777}.+{777777}')
             local nameb = namebad:gsub('{......}','')
             local name = nameb:gsub('%s+$','')
-            if line:find('{777777}(%d+) шт%.') then
+            if line:find('{777777}(%d+) ГёГІ%.') then
               local num = line:match('{777777}(%d+)')
               local numgood = num:gsub('{......}','')
               if choicesellarrayfind(name,numgood) == false then
@@ -545,7 +545,7 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
             local namebad = line:match('{FFFFFF}.+{FFFFFF}')
             local nameb = namebad:gsub('{......}','')
             local name = nameb:gsub('%s+$','')
-            if line:find('{FFFFFF}(%d+) шт%.') then
+            if line:find('{FFFFFF}(%d+) ГёГІ%.') then
               local num = line:match('{FFFFFF}(%d+)')
               local numgood = num:gsub('{......}','')
               if choicesellarrayfind(name,numgood) == false then
@@ -572,33 +572,33 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
           data[2] = 0
         end
       end
-      sms('Обновления списка товаров на продажу завершен!')
+      sms('ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г±ГЇГЁГ±ГЄГ  ГІГ®ГўГ Г°Г®Гў Г­Г  ГЇГ°Г®Г¤Г Г¦Гі Г§Г ГўГҐГ°ГёГҐГ­!')
     end)
   end
 
-  if mode == 8 and #mySellArray <= 0 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
-    sms('Список товаров на продажу пустой')
+  if mode == 8 and #mySellArray <= 0 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
+    sms('Г‘ГЇГЁГ±Г®ГЄ ГІГ®ГўГ Г°Г®Гў Г­Г  ГЇГ°Г®Г¤Г Г¦Гі ГЇГіГ±ГІГ®Г©')
     mode = 0
   end
 
-  if mode == 8 and #mySellArray > 0 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 8 and #mySellArray > 0 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     lua_thread.create(function ()
       if pagesell <= #mySellArray and mySellArray[pagesell][4] == false then
         pagesell = mySellArrayCheck()
       end
       if pagesell == nil or pagesell > #mySellArray then
-        sms('Выставление товаров на продажу завершен!')
+        sms('Г‚Г»Г±ГІГ ГўГ«ГҐГ­ГЁГҐ ГІГ®ГўГ Г°Г®Гў Г­Г  ГЇГ°Г®Г¤Г Г¦Гі Г§Г ГўГҐГ°ГёГҐГ­!')
         pagesell = 1
         mode = 0
       else
         wait(ini.main.delaysell)
-        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Выставить товар на продажу'), nil)
+        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г‚Г»Г±ГІГ ГўГЁГІГј ГІГ®ГўГ Г° Г­Г  ГЇГ°Г®Г¤Г Г¦Гі'), nil)
         mode = 9
       end
     end)
   end
 
-  if mode == 9 and #mySellArray > 0 and text:find('Предыдущая страница') and page[1] ~= page[2] then
+  if mode == 9 and #mySellArray > 0 and text:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and page[1] ~= page[2] then
     lua_thread.create(function ()
       local massive = {}
       local name = nil
@@ -608,13 +608,13 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
         table.insert(massive, line)
       end
       for i, line in ipairs(massive) do
-        if line:find('.+') and not line:find('В наличии') and not line:find('Предыдущая страница') and not line:find('Следующая страница') and mode == 9 then
+        if line:find('.+') and not line:find('Г‚ Г­Г Г«ГЁГ·ГЁГЁ') and not line:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and not line:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and mode == 9 then
           if line:find('{777777}') then
             local namebad = line:match('{777777}.+{777777}')
             local nameb = namebad:gsub('{......}','')
             local namebb = nameb:gsub('%s+$','')
             if namebb == mySellArray[pagesell][1] then
-              if line:find('{777777}(%d+) шт%.') then
+              if line:find('{777777}(%d+) ГёГІ%.') then
                 local numb = line:match('{777777}(%d+)')
                 num = numb:gsub('{......}','')
               else
@@ -635,12 +635,12 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
       end
       if isPagesell == false then
         wait(ini.main.delaysell)
-        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Следующая страница')-1, nil)
+        sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ')-1, nil)
       end
     end)
   end
 
-  if mode == 9 and #mySellArray > 0 and text:find('Предыдущая страница') and page[1] == page[2] then
+  if mode == 9 and #mySellArray > 0 and text:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and page[1] == page[2] then
     lua_thread.create(function ()
       local massive = {}
       local name = nil
@@ -650,13 +650,13 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
         table.insert(massive, line)
       end
       for i, line in ipairs(massive) do
-        if line:find('.+') and not line:find('В наличии') and not line:find('Предыдущая страница') and not line:find('Следующая страница') and mode == 9 then
+        if line:find('.+') and not line:find('Г‚ Г­Г Г«ГЁГ·ГЁГЁ') and not line:find('ГЏГ°ГҐГ¤Г»Г¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and not line:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ') and mode == 9 then
           if line:find('{777777}') then
             local namebad = line:match('{777777}.+{777777}')
             local nameb = namebad:gsub('{......}','')
             local namebb = nameb:gsub('%s+$','')
             if namebb == mySellArray[pagesell][1] then
-              if line:find('{777777}(%d+) шт%.') then
+              if line:find('{777777}(%d+) ГёГІ%.') then
                 local numb = line:match('{777777}(%d+)')
                 num = numb:gsub('{......}','')
               else
@@ -684,14 +684,14 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
     end)
   end
 
-  if mode == 11 and text:find('Введите количество и цену за один товар') then
+  if mode == 11 and text:find('Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЁ Г¶ГҐГ­Гі Г§Г  Г®Г¤ГЁГ­ ГІГ®ГўГ Г°') then
     lua_thread.create(function ()
       wait(ini.main.delaysell)
       sampSendDialogResponse(id, 1, nil, num..','..mySellArray[pagesell][3])
       mode = 8
     end)
   end
-  if mode == 11 and text:find('Введите цену за товар') then
+  if mode == 11 and text:find('Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГҐГ­Гі Г§Г  ГІГ®ГўГ Г°') then
     lua_thread.create(function ()
       wait(ini.main.delaysell)
       sampSendDialogResponse(id, 1, nil, mySellArray[pagesell][3])
@@ -699,20 +699,20 @@ function sampev.onShowDialog(id, style, title, button1, button2, text)
     end)
   end
 
-  if mode == 20 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 20 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     lua_thread.create(function ()
       wait(ini.main.delaysell)
-      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Удалить товар с продажи'), nil)
+      sampSendDialogResponse(id, 1, getLineOnTextDialog(text, 'Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ'), nil)
       mode = 21
     end)
   end
 
-  if mode == 21 and text:find('Прекратить покупку товара') and text:find('Удалить товар с продажи') then
+  if mode == 21 and text:find('ГЏГ°ГҐГЄГ°Г ГІГЁГІГј ГЇГ®ГЄГіГЇГЄГі ГІГ®ГўГ Г°Г ') and text:find('Г“Г¤Г Г«ГЁГІГј ГІГ®ГўГ Г° Г± ГЇГ°Г®Г¤Г Г¦ГЁ') then
     mode = 0
-    sms('Прекращение продажи товаров завершен!')
+    sms('ГЏГ°ГҐГЄГ°Г Г№ГҐГ­ГЁГҐ ГЇГ°Г®Г¤Г Г¦ГЁ ГІГ®ГўГ Г°Г®Гў Г§Г ГўГҐГ°ГёГҐГ­!')
   end
 
-  if mode == 21 and text:find('В продаже') and text:find('Следующая страница >>>') then
+  if mode == 21 and text:find('Г‚ ГЇГ°Г®Г¤Г Г¦ГҐ') and text:find('Г‘Г«ГҐГ¤ГіГѕГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  >>>') then
     lua_thread.create(function ()
       local size = sampGetListboxItemsCount()-1
       local rightpage = sampGetListboxItemsCount()-1
@@ -877,7 +877,7 @@ function calcPriceBuy()
   if calcMyMoneyMyBuy > -1 then
     imgui.Text(u8('%s$ - %s$ = %s$'):format(myMoney,price,calcMyMoneyMyBuy))
   else
-    imgui.Text(u8('%s$ нехватает'):format(calcMyMoneyMyBuy1))
+    imgui.Text(u8('%s$ Г­ГҐГµГўГ ГІГ ГҐГІ'):format(calcMyMoneyMyBuy1))
   end
 end
 
@@ -896,7 +896,7 @@ function intInputMyBuyArray(i,data,n)
   local b = imgui.ImInt(data[n])
   local str
   if n == 2 then
-    str = 'шт'
+    str = 'ГёГІ'
   end
   if n == 3 then
     str = '$'
@@ -921,7 +921,7 @@ function intInputMySellArray(i,data,n)
   local b = imgui.ImInt(data[n])
   local str
   if n == 2 then
-    str = 'шт'
+    str = 'ГёГІ'
   end
   if n == 3 then
     str = '$'
@@ -937,7 +937,7 @@ end
 function settingsmaincmd()
   local buffer = imgui.ImBuffer(ini.main.command,128)
   imgui.PushItemWidth(100)
-    if imgui.InputText(u8('Команда для открытия скрипта (без слеша / )'), buffer) then
+    if imgui.InputText(u8('ГЉГ®Г¬Г Г­Г¤Г  Г¤Г«Гї Г®ГІГЄГ°Г»ГІГЁГї Г±ГЄГ°ГЁГЇГІГ  (ГЎГҐГ§ Г±Г«ГҐГёГ  / )'), buffer) then
       if u8:decode(buffer.v) ~= ini.main.command and not buffer.v:find(' ') then
         if buffer.v ~= '' then
           sampUnregisterChatCommand(ini.main.command)
@@ -979,7 +979,7 @@ function string.rlower(s)
       local ch = s:byte(i)
       if ch >= 192 and ch <= 223 then -- upper russian characters
           output = output .. russian_characters[ch + 32]
-      elseif ch == 168 then -- Ё
+      elseif ch == 168 then -- ВЁ
           output = output .. russian_characters[184]
       else
           output = output .. string.char(ch)
@@ -997,7 +997,7 @@ function string.rupper(s)
       local ch = s:byte(i)
       if ch >= 224 and ch <= 255 then -- lower russian characters
           output = output .. russian_characters[ch - 32]
-      elseif ch == 184 then -- ё
+      elseif ch == 184 then -- Вё
           output = output .. russian_characters[168]
       else
           output = output .. string.char(ch)
@@ -1019,13 +1019,13 @@ function kdmaincmd()
   local bufferbuy = imgui.ImInt(ini.main.delaybuy)
   local buffersell = imgui.ImInt(ini.main.delaysell)
   imgui.PushItemWidth(100)
-    if imgui.InputInt(u8('Задержка между окнами при скупе (лучше не трогать)'), bufferbuy, 0, 0) then
+    if imgui.InputInt(u8('Г‡Г Г¤ГҐГ°Г¦ГЄГ  Г¬ГҐГ¦Г¤Гі Г®ГЄГ­Г Г¬ГЁ ГЇГ°ГЁ Г±ГЄГіГЇГҐ (Г«ГіГ·ГёГҐ Г­ГҐ ГІГ°Г®ГЈГ ГІГј)'), bufferbuy, 0, 0) then
       if u8:decode(bufferbuy.v) ~= ini.main.delaybuy and bufferbuy.v > 0 then
         ini.main.delaybuy = u8:decode(bufferbuy.v)
         inicfg.save(ini, IniFilename)
       end
     end
-    if imgui.InputInt(u8('Задержка между окнами при продаже (лучше не трогать)'), buffersell, 0, 0) then
+    if imgui.InputInt(u8('Г‡Г Г¤ГҐГ°Г¦ГЄГ  Г¬ГҐГ¦Г¤Гі Г®ГЄГ­Г Г¬ГЁ ГЇГ°ГЁ ГЇГ°Г®Г¤Г Г¦ГҐ (Г«ГіГ·ГёГҐ Г­ГҐ ГІГ°Г®ГЈГ ГІГј)'), buffersell, 0, 0) then
       if u8:decode(buffersell.v) ~= ini.main.delaysell and bufferbuy.v > 0 then
         ini.main.delaysell = u8:decode(buffersell.v)
         inicfg.save(ini, IniFilename)
@@ -1089,7 +1089,7 @@ function funcmybuy(i, data, sw, sh)
     jsonSave(json_file_mybuyarray,myBuyArray)
   end
   imgui.SameLine()
-  if imgui.ButtonActivated(tab1 == i, u8('##Переместить ##%d'):format(i), imgui.ImVec2(sh / 40, sh / 40)) then
+  if imgui.ButtonActivated(tab1 == i, u8('##ГЏГҐГ°ГҐГ¬ГҐГ±ГІГЁГІГј ##%d'):format(i), imgui.ImVec2(sh / 40, sh / 40)) then
     if tab1 == 0 then
       tab1 = i
     else
@@ -1102,13 +1102,13 @@ function funcmybuy(i, data, sw, sh)
     end
   end
   imgui.SameLine()
-  if imgui.Button(u8'Сбросить ##%d':format(i), imgui.ImVec2(sw / 30, sh / 40)) then
+  if imgui.Button(u8'Г‘ГЎГ°Г®Г±ГЁГІГј ##%d':format(i), imgui.ImVec2(sw / 30, sh / 40)) then
     tab1 = 0
   end
   imgui.SameLine()
   imgui.Text(u8('%s - %s'):format(i, u8(data[1])))
   imgui.SameLine()
-  if imgui.Button(u8('Удалить ##%d'):format(i), imgui.ImVec2(sw / 33 , sh / 40)) and myBuyArray[i] then
+  if imgui.Button(u8('Г“Г¤Г Г«ГЁГІГј ##%d'):format(i), imgui.ImVec2(sw / 33 , sh / 40)) and myBuyArray[i] then
     table.remove(myBuyArray, i)
     tab1 = 0
     jsonSave(json_file_mybuyarray,myBuyArray)
@@ -1132,7 +1132,7 @@ function funcmysell(i, data, sw, sh)
     jsonSave(json_file_mysellarray,mySellArray)
   end
   imgui.SameLine()
-  if imgui.ButtonActivated(tab2 == i, u8('##Переместитьd ##%d'):format(i), imgui.ImVec2(sh / 40, sh / 40)) then
+  if imgui.ButtonActivated(tab2 == i, u8('##ГЏГҐГ°ГҐГ¬ГҐГ±ГІГЁГІГјd ##%d'):format(i), imgui.ImVec2(sh / 40, sh / 40)) then
     if tab2 == 0 then
       tab2 = i
     else
@@ -1145,18 +1145,18 @@ function funcmysell(i, data, sw, sh)
     end
   end
   imgui.SameLine()
-  if imgui.Button(u8'Сбросить ##%d':format(i), imgui.ImVec2(sw / 30, sh / 40)) then
+  if imgui.Button(u8'Г‘ГЎГ°Г®Г±ГЁГІГј ##%d':format(i), imgui.ImVec2(sw / 30, sh / 40)) then
     tab2 = 0
   end
   imgui.SameLine()
   imgui.Text(u8('%s - %s'):format(i,u8(data[1])))
   imgui.SameLine()
-  if imgui.Button(u8('Удалить ##%d'):format(i), imgui.ImVec2(sw / 33 , sh / 40)) and data[1] then
+  if imgui.Button(u8('Г“Г¤Г Г«ГЁГІГј ##%d'):format(i), imgui.ImVec2(sw / 33 , sh / 40)) and data[1] then
     table.remove(mySellArray, i)
     tab2 = 0
     jsonSave(json_file_mysellarray,mySellArray)
   end
-  imgui.Text(u8('%s шт'):format(data[2]))
+  imgui.Text(u8('%s ГёГІ'):format(data[2]))
   intInputMySellArray(i,data,3)
   imgui.Separator()
 end
@@ -1171,7 +1171,7 @@ function funcchoicebuy(i, f, sw, sh)
 end
 
 function funcchoicesell(i, data, sw, sh)
-  if imgui.Button(u8('%s - %s - %s шт'):format(i,u8(data[1]),data[2]), imgui.ImVec2(sw / 4.3 , sh / 40)) then
+  if imgui.Button(u8('%s - %s - %s ГёГІ'):format(i,u8(data[1]),data[2]), imgui.ImVec2(sw / 4.3 , sh / 40)) then
     if choiceSellArray_mySellArray(i) ~= false then
       table.insert(mySellArray, {data[1], data[2], 10, true})
       jsonSave(json_file_mysellarray,mySellArray)
@@ -1206,7 +1206,7 @@ function autosellbuy()
   if ini.main.autosell == true then
     autosellparam = imgui.ImBool(true)
   end
-  if imgui.Checkbox(u8'Авто выставление товаров на скуп после того, как встали в лавку', autobuyparam) then
+  if imgui.Checkbox(u8'ГЂГўГІГ® ГўГ»Г±ГІГ ГўГ«ГҐГ­ГЁГҐ ГІГ®ГўГ Г°Г®Гў Г­Г  Г±ГЄГіГЇ ГЇГ®Г±Г«ГҐ ГІГ®ГЈГ®, ГЄГ ГЄ ГўГ±ГІГ Г«ГЁ Гў Г«Г ГўГЄГі', autobuyparam) then
     if ini.main.autobuy == false then
       ini.main.autobuy = true
       ini.main.autosell = false
@@ -1216,7 +1216,7 @@ function autosellbuy()
     inicfg.save(ini, IniFilename)
   end
   imgui.SameLine()
-  if imgui.Checkbox(u8'Авто выставление товаров на продажу после того, как встали в лавку', autosellparam) then
+  if imgui.Checkbox(u8'ГЂГўГІГ® ГўГ»Г±ГІГ ГўГ«ГҐГ­ГЁГҐ ГІГ®ГўГ Г°Г®Гў Г­Г  ГЇГ°Г®Г¤Г Г¦Гі ГЇГ®Г±Г«ГҐ ГІГ®ГЈГ®, ГЄГ ГЄ ГўГ±ГІГ Г«ГЁ Гў Г«Г ГўГЄГі', autosellparam) then
     if ini.main.autosell == false then
       ini.main.autosell = true
       ini.main.autobuy = false
@@ -1236,5 +1236,3 @@ function clickalt()
     wait(500)
   end
 end
-
-predmetu = {{"jenek", 100},{"site//jpg", 1000},{"jenek", 10240},{"kosta", 500}}
